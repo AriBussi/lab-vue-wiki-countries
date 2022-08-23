@@ -1,29 +1,19 @@
 <template>
-  <div className="app">
-    <header className="app-header">
-      <img :src="logo" className="app-logo" alt="logo" />
-      <p>
-        Edit <code>src/app.js</code> and save to reload.
-      </p>
-      <a
-        className="app-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn Vue
-      </a>
-    </header>
+  <div class="app">
+    <Navbar />
+
+    <div className="container">
+      <div className="row">
+        <CountriesList :countries="countries" />
+        <!-- <router-view> -->
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
-  import logo from './logo.svg';
-  export default {
-    data: () => ({
-      logo
-    })
-  }
+<script setup>
+  import Navbar from './components/NavBar.vue';
+  import CountriesList from './components/CountriesList.vue';
 </script>
 
 <style>
@@ -36,48 +26,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 .app {
   text-align: center;
 }
-
-.app-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .app-logo {
-    animation: app-logo-spin infinite 20s linear;
-  }
-}
-
-.app-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.app-link {
-  color: #61dafb;
-}
-
-@keyframes app-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 </style>
