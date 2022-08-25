@@ -12,8 +12,19 @@
 </template>
 
 <script setup>
+  import { ref, onMounted } from 'vue';
+
   import Navbar from './components/NavBar.vue';
   import CountriesList from './components/CountriesList.vue';
+
+  const countries = ref(null);
+
+  onMounted(async () => {
+    const response = await fetch("https://ih-countries-api.herokuapp.com/countries");
+    const data = await response.json();
+    countries.value = data;
+  })
+
 </script>
 
 <style>
